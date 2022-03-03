@@ -5,36 +5,46 @@
     box-sizing: border-box;
 }
 
+/* assegnamo un font sans-serif a tutto il documento */
 html {
     font-family: sans-serif;
 }
 
+/* dimensioniamo il container principale */
 .container {
-    width: 80%;
+    width: 70%;
     max-width: 1200px;
     margin: 3em auto
 }
 
+/* l'unico attributo che diamo alla riga è un margine per separarla dalle righe dopo */
 .row {
-    /* border: 1px solid blue; */
+    margin-bottom: 2em;
 }
 
+/* stilizziamo le singole card per farne stare tre per riga
+   diamo loro una larghezza pari a 1/3 dell'elemento padre, meno 3px
+   (la dimensione del gap di default di inline-block), meno 1em (che poi recupereremo
+   con i margini laterali di 0.5em ciascuno per centrarle */
 .card {
     display: inline-block;
     width: calc(100% / 3 - 3px - 1em);
-    /* border: 1px solid red; */
-    text-align: center;
     margin: 0 0.5em;
+
 }
 
+/* diamo al blocco che contiene l'immagine e le etichette un position relative,
+   così potremo posizionare i tag e il blocco con il cuoricino con position absolute */
 .product-img {
     position: relative;
 }
 
+/* ci assicuriamo che l'immagine sarà sempre larga quanto il suo genitore */
 .product-img > img {
     width: 100%;
 }
 
+/* questa è lo stile per switchare le immagini quando ci passiamo sopra col mouse */
 .product-img > img.hover,
 .product-img:hover > img.default {
     display: none;
@@ -45,6 +55,8 @@ html {
     display: inline-block;
 }
 
+/* stilizziamo il blocco che contiene il cuoricino con dimensioni e posizione,
+   più gli stili necessari per centrare il cuoricino orizzontalmente e verticalmente */
 .product-img > .heart {
     background-color: white;
     display: inline-block;
@@ -58,19 +70,28 @@ html {
     text-align: center;
 }
 
+/* una cosa in più: quando facciamo hover sul cuoricino, lo facciamo diventare rosso */
+.heart:hover {
+    color:red;
+}
+
+/* le scatoline con l'indicazione dello sconto e della sostenibilità di trovano dentro in div 
+   con classe 'tags'. Con questo CSS lo posizioniamo a 2rem a partire dal lato basso del suo genitore*/
 .tags {
     position: absolute;
     bottom: 2rem;
 
 }
 
+/* lo stile generico delle etichette di sconto e sostenibilità  */
 .tags div {
     display: inline-block;
     font-size: 0.8rem;
     font-weight: bold;
-    padding: 0.5em;
+    padding: 0.5rem;
 }
 
+/* i due stili specifici ai due diversi tipi di etichetta */
 .discount {
     background-color: #eb0037;
     color: white;
@@ -81,10 +102,7 @@ html {
     color: white;
 }
 
-.product-info {
-    text-align: left;
-}
-
+/* gli stili specifici del testo delle varie informazioni sotto alle immagini */
 .product-brand {
     font-size: 0.8rem;
 }
@@ -94,7 +112,7 @@ html {
 }
 
 .product-price {
-    font-size: 0.8em;
+    font-size: 0.8rem;
     font-weight: bold;
     color: #ff1d1d;
 }
